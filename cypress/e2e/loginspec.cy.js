@@ -1,18 +1,28 @@
 describe('Constel Testes', () => {
+
+const selectorList = {
+  usernameField: "[aria-describedby='login-email']",
+  passwordField: "[aria-describedby='login-password']",
+  loginButton: ".btn-primary",
+  selectionTitleTopBar: ".text-white",
+  wrongCredencialAlert: ".alert-body"
+
+}
+
   it('Login com sucesso', () => {
     cy.visit('https://constel.builders/pages/authentication/login-v2')
-    cy.get("[aria-describedby='login-email']").type('gabriel@audax.com')
-    cy.get("[aria-describedby='login-password']").type('1234')
-    cy.get('.btn-primary').click()
+    cy.get(selectorList.usernameField).type('gabriel@audax.com')
+    cy.get(selectorList.passwordField).type('1234')
+    cy.get(selectorList.loginButton).click()
     cy.location('pathname').should('equal', '/dashboard/estatistica')
-    cy.get('.text-white').contains('contentes')
+    cy.get(selectorList.selectionTitleTopBar).contains('contentes')
   })
   it('Login sem sucesso', () => {
     cy.visit('https://constel.builders/pages/authentication/login-v2')
-    cy.get("[aria-describedby='login-email']").type('gabriel@audax.com')
-    cy.get("[aria-describedby='login-password']").type('123')
-    cy.get('.auth-login-form > .btn').click()
-    cy.get('.alert-body')
+    cy.get(selectorList.usernameField).type('gabriel@audax.com')
+    cy.get(selectorList.passwordField).type('123')
+    cy.get(selectorList.loginButton).click()
+    cy.get(selectorList.wrongCredencialAlert)
     
   })
 })
