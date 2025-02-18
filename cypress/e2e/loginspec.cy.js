@@ -5,6 +5,7 @@ const selectorList = {
   passwordField: "[aria-describedby='login-password']",
   loginButton: ".btn-primary",
   selectionTitleTopBar: ".text-white",
+  dashboardGrid: "[href='/dashboard/estatistica']",
   wrongCredencialAlert: ".alert-body"
 
 }
@@ -15,7 +16,7 @@ const selectorList = {
     cy.get(selectorList.passwordField).type('1234')
     cy.get(selectorList.loginButton).click()
     cy.location('pathname').should('equal', '/dashboard/estatistica')
-    cy.get(selectorList.selectionTitleTopBar).contains('contentes')
+    cy.get(selectorList.dashboardGrid)
   })
   it('Login sem sucesso', () => {
     cy.visit('https://constel.builders/pages/authentication/login-v2')
