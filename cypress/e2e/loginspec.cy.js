@@ -1,3 +1,5 @@
+import userData from '../fixtures/user-data.json'
+
 describe('Constel Testes', () => {
 
 const selectorList = {
@@ -12,16 +14,17 @@ const selectorList = {
 
   it('Login com sucesso', () => {
     cy.visit('https://constel.builders/pages/authentication/login-v2')
-    cy.get(selectorList.usernameField).type('gabriel@audax.com')
-    cy.get(selectorList.passwordField).type('1234')
+    cy.get(selectorList.usernameField).type(userData.userSucess.username)
+    cy.get(selectorList.passwordField).type(userData.userSucess.password)
     cy.get(selectorList.loginButton).click()
     cy.location('pathname').should('equal', '/dashboard/estatistica')
     cy.get(selectorList.dashboardGrid)
   })
+
   it('Login sem sucesso', () => {
     cy.visit('https://constel.builders/pages/authentication/login-v2')
-    cy.get(selectorList.usernameField).type('gabriel@audax.com')
-    cy.get(selectorList.passwordField).type('123')
+    cy.get(selectorList.usernameField).type(userData.userFail.username)
+    cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
     cy.get(selectorList.wrongCredencialAlert)
     
