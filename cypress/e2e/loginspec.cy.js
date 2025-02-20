@@ -13,7 +13,7 @@ const selectorList = {
 }
 
   it('Login com sucesso', () => {
-    cy.visit('https://constel.builders/pages/authentication/login-v2')
+    cy.visit('/authentication/login-v2')
     cy.get(selectorList.usernameField).type(userData.userSucess.username)
     cy.get(selectorList.passwordField).type(userData.userSucess.password)
     cy.get(selectorList.loginButton).click()
@@ -22,7 +22,7 @@ const selectorList = {
   })
 
   it('Login sem sucesso', () => {
-    cy.visit('https://constel.builders/pages/authentication/login-v2')
+    cy.visit('/authentication/login-v2')
     cy.get(selectorList.usernameField).type(userData.userFail.username)
     cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
