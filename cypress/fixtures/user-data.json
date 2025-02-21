@@ -1,11 +1,10 @@
 {
     "userSucess": {
-      "username": "gabriel@audax.com",
-      "password": "1234"
+      "username": "Admin",
+      "password": "admin123"
     },
     "userFail": {
      "username": "teste@teste",
      "password": "teste"
     }
-  
-  }
+}
