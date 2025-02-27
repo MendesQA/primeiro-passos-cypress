@@ -13,6 +13,10 @@ class MenuPaje {
         cy.get(this.selectorList().myInfoButton).click()
     
     }
+
+    checkAccessInvalid() {
+        cy.get(this.selectorList().wrongCredencialAlert)
+    }
 }
 
 export default MenuPaje
